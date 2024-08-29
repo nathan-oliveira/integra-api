@@ -1,0 +1,445 @@
+_type: export
+__export_format: 4
+__export_date: 2024-08-29T17:03:23.856Z
+__export_source: insomnia.desktop.app:v9.3.2
+resources:
+  - _id: req_6209fbaaae184539af576f7d5b5bd9ea
+    parentId: fld_8cf9670244bf4eaa9a7db65313d3a1e6
+    modified: 1724950822569
+    created: 1724888541717
+    url: http://localhost:80/93529dc2-a15c-4c1b-9e9e-2dd063bce7e7/list
+    name: LIST
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/9.3.2
+    authentication: {}
+    metaSortKey: -1724864038678
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_8cf9670244bf4eaa9a7db65313d3a1e6
+    parentId: wrk_scratchpad
+    modified: 1724864029190
+    created: 1724864029190
+    name: Api
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1724864029190
+    _type: request_group
+  - _id: wrk_scratchpad
+    parentId: null
+    modified: 1721219637097
+    created: 1721219637097
+    name: Scratch Pad
+    description: ""
+    scope: collection
+    _type: workspace
+  - _id: req_5f341a9eff77485b96c3858268ec9f11
+    parentId: fld_8cf9670244bf4eaa9a7db65313d3a1e6
+    modified: 1724950806124
+    created: 1724883559519
+    url: http://localhost:80/confirm
+    name: CONFIRM
+    description: ""
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"measure_uuid": "db5e5869-9762-4216-b1b9-dcf4c32e5b0b",
+        	"confirmed_value": "1"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/9.3.2
+    authentication: {}
+    metaSortKey: -1724864038578
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_46ec77543eda4c2cae8dcc9bbcec51f5
+    parentId: fld_8cf9670244bf4eaa9a7db65313d3a1e6
+    modified: 1724950817319
+    created: 1724861307357
+    url: http://localhost:80/upload
+    name: UPLOAD
+    description: ""
+    method: POST
+    body:
+      mimeType: multipart/form-data
+      params:
+        - id: pair_7827121f273147e4b08b81961c9a081d
+          name: customer_code
+          value: 93529dc2-a15c-4c1b-9e9e-2dd063bce7e7
+          description: ""
+          disabled: false
+        - id: pair_c6dbb98f0ce04194b1191dab0eb0272c
+          name: measure_datetime
+          value: 2024-08-29T19:47:37.045Z
+          description: ""
+          disabled: false
+        - id: pair_b0e0f10100a14a75be0bc20ff6eb890c
+          name: measure_type
+          value: GAS
+          description: ""
+          disabled: false
+        - id: pair_cd686473329a4d20a57abe18b1a6c24f
+          name: image
+          value: ""
+          description: ""
+          disabled: false
+          type: file
+          fileName: C:\Users\nathan_oliveira\Downloads\medidor-gas.png
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: multipart/form-data
+      - name: User-Agent
+        value: insomnia/9.3.2
+    authentication: {}
+    metaSortKey: -1724864038478
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: env_99d30891da4bdcebc63947a8fc17f076de878684
+    parentId: wrk_scratchpad
+    modified: 1721219660869
+    created: 1721219660869
+    name: Base Environment
+    data: {}
+    dataPropertyOrder: null
+    color: null
+    isPrivate: false
+    metaSortKey: 1721219660869
+    _type: environment
+  - _id: jar_99d30891da4bdcebc63947a8fc17f076de878684
+    parentId: wrk_scratchpad
+    modified: 1721219661389
+    created: 1721219661389
+    name: Default Jar
+    cookies: []
+    _type: cookie_jar
+  - _id: uts_860a11b7d3f34e0ca237b5148194e78b
+    parentId: wrk_scratchpad
+    modified: 1640094502628
+    created: 1639164346099
+    name: AFVMobile -> AFVServer
+    metaSortKey: -1721219739279
+    _type: unit_test_suite
+  - _id: uts_91d04467a48743c2b6ec3b7cad38c5f6
+    parentId: wrk_scratchpad
+    modified: 1640094578355
+    created: 1640094578355
+    name: AFVServer <- AFVMobile
+    metaSortKey: -1721219739281
+    _type: unit_test_suite
+  - _id: env_550ed77fd05e45efbb75c5552d3d4d27
+    parentId: env_99d30891da4bdcebc63947a8fc17f076de878684
+    modified: 1640091730173
+    created: 1639164098557
+    name: DEV
+    data:
+      protocol: http
+      host: localhost
+      services:
+        AccessProvider:
+          service: api
+          port: "3001"
+        Sync:
+          service: api
+          port: "10985"
+    dataPropertyOrder:
+      "&":
+        - protocol
+        - host
+        - services
+      "&~|services":
+        - AccessProvider
+        - Sync
+      "&~|services~|AccessProvider":
+        - service
+        - port
+      "&~|services~|Sync":
+        - service
+        - port
+    color: "#2e5ce5"
+    isPrivate: false
+    metaSortKey: 1639164098557
+    _type: environment
+  - _id: env_1f9c2088671a43b3889e5d53283e6d38
+    parentId: env_99d30891da4bdcebc63947a8fc17f076de878684
+    modified: 1639164207326
+    created: 1639164099654
+    name: QAS
+    data:
+      protocol: http
+      host: providerqas.acaciaconsultoria.com.br
+      services:
+        AccessProvider:
+          service: AccessProvider
+          port: "10985"
+        Sync:
+          service: Sync
+          port: "10985"
+    dataPropertyOrder:
+      "&":
+        - protocol
+        - host
+        - services
+      "&~|services":
+        - AccessProvider
+        - Sync
+      "&~|services~|AccessProvider":
+        - service
+        - port
+      "&~|services~|Sync":
+        - service
+        - port
+    color: "#ffa200"
+    isPrivate: false
+    metaSortKey: 1639164099654
+    _type: environment
+  - _id: env_ff800eac1096403f80cff1ac348515de
+    parentId: env_99d30891da4bdcebc63947a8fc17f076de878684
+    modified: 1640091784286
+    created: 1639164100477
+    name: PRD
+    data:
+      protocol: http
+      host: provider.acaciaconsultoria.com.br
+      services:
+        AccessProvider:
+          service: AccessProvider
+          port: "10985"
+        Sync:
+          service: Sync
+          port: "10985"
+    dataPropertyOrder:
+      "&":
+        - protocol
+        - host
+        - services
+      "&~|services":
+        - AccessProvider
+        - Sync
+      "&~|services~|AccessProvider":
+        - service
+        - port
+      "&~|services~|Sync":
+        - service
+        - port
+    color: "#ff0000"
+    isPrivate: false
+    metaSortKey: 1639164100477
+    _type: environment
+  - _id: env_6624ecdc56344a5aa91209772c045839
+    parentId: env_99d30891da4bdcebc63947a8fc17f076de878684
+    modified: 1639179878087
+    created: 1639179861876
+    name: PRD - Lactalis
+    data:
+      protocol: http
+      host: provider.acaciaconsultoria.com.br
+      services:
+        AccessProvider:
+          service: AccessProvider
+          port: "10985"
+        Sync:
+          service: SyncLactalis
+          port: "10985"
+    dataPropertyOrder:
+      "&":
+        - protocol
+        - host
+        - services
+      "&~|services":
+        - AccessProvider
+        - Sync
+      "&~|services~|AccessProvider":
+        - service
+        - port
+      "&~|services~|Sync":
+        - service
+        - port
+    color: "#ff0000"
+    isPrivate: false
+    metaSortKey: 1639164100527
+    _type: environment
+  - _id: env_508cc7366c934a76aae3e183a1619bf0
+    parentId: env_99d30891da4bdcebc63947a8fc17f076de878684
+    modified: 1640095440165
+    created: 1640091732329
+    name: DEV - SSL
+    data:
+      protocol: http
+      host: providertst.acaciaconsultoria.com.br
+      services:
+        AccessProvider:
+          service: AccessProvider
+          port: "10985"
+        Sync:
+          service: Sync
+          port: "10985"
+    dataPropertyOrder:
+      "&":
+        - protocol
+        - host
+        - services
+      "&~|services":
+        - AccessProvider
+        - Sync
+      "&~|services~|AccessProvider":
+        - service
+        - port
+      "&~|services~|Sync":
+        - service
+        - port
+    color: "#2e5ce5"
+    isPrivate: false
+    metaSortKey: 1639164099105.5
+    _type: environment
+  - _id: env_8f8aa2734f6f469e8d564b3447f9b69b
+    parentId: env_99d30891da4bdcebc63947a8fc17f076de878684
+    modified: 1692878716276
+    created: 1687779336799
+    name: New Environment
+    data:
+      awptoken_master: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjYzljYzBkMi1hMGYzLTQ3OTAtOWM1ZS02MWQ5OGQyNzdlOGEiLCJjb21wYW55SWQiOiIyZWEwMDRlYi0zMjdiLTQzOWMtYmVmYy00Njg1MGM0YTkwYWEiLCJydWxlIjo0LCJhY3RpdmUiOnRydWUsImlhdCI6MTY4OTAyMTM5NSwiZXhwIjoxNjg5MDY0NTk1fQ.Wf-Na3-jSedmf6kKfUq9aqjQkK3Chfr5abPNnDnjg4M
+      awptoken_user: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxZjJmNGY4YS0wOTBkLTQ4ODktYjVkMi1hMjY3YjM4MTkzOGUiLCJjb21wYW55SWQiOiIxNzhjZTE4My1jZGMzLTRkYjYtODBkOC03NTNjOTg2OThlYjYiLCJydWxlIjoxLCJhY3RpdmUiOnRydWUsImlhdCI6MTY4OTAxNDczMCwiZXhwIjoxNjg5MDU3OTMwfQ.RTLzJaLKHN4RGMw2bZLxMP7JqM61Kap5GZH9IkDj_Wo
+      awptoken_useradmin: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIzNWE0NzU4Mi01NjNlLTQzZjEtODRmOS05YWM5NzU3ODdmMDEiLCJjb21wYW55SWQiOiIyZWEwMDRlYi0zMjdiLTQzOWMtYmVmYy00Njg1MGM0YTkwYWEiLCJydWxlIjoyLCJhY3RpdmUiOnRydWUsImlhdCI6MTY5Mjg3ODY4MSwiZXhwIjoxNjkyOTIxODgxfQ.3S4lHrFZuFgeLzDQFf8F75UjCWIHYM5Woo7MN36YPGk
+      awptoken_suporte: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwZGYzYjRiNi03NTg5LTQ4ZTEtOTRhOC1hMDg3ZjhlYmMyZjQiLCJjb21wYW55SWQiOiIxNzhjZTE4My1jZGMzLTRkYjYtODBkOC03NTNjOTg2OThlYjYiLCJydWxlIjozLCJhY3RpdmUiOnRydWUsImlhdCI6MTY4OTAxNDcxMywiZXhwIjoxNjg5MDU3OTEzfQ.bcSF5ToH6wCwSC-DyCLvcz58xb9SyKRoyLK2MsOfvTY
+    dataPropertyOrder:
+      "&":
+        - awptoken_master
+        - awptoken_user
+        - awptoken_useradmin
+        - awptoken_suporte
+    color: null
+    isPrivate: false
+    metaSortKey: 1687779336801
+    _type: environment
+  - _id: ut_a827d41038504f2282e561b9621dea5a
+    parentId: uts_860a11b7d3f34e0ca237b5148194e78b
+    modified: 1639168836122
+    created: 1639164368712
+    requestId: null
+    name: Create Transaction
+    code: |-
+      const response1 = await insomnia.send();
+      expect(response1.status).to.equal(200);
+    metaSortKey: -1721219739284
+    _type: unit_test
+  - _id: ut_6d572a7a72ae4c9eb0ff31438ad0ad3f
+    parentId: uts_860a11b7d3f34e0ca237b5148194e78b
+    modified: 1639167293443
+    created: 1639167288817
+    requestId: null
+    name: Create Metadata
+    code: |-
+      const response1 = await insomnia.send();
+      expect(response1.status).to.equal(200);
+    metaSortKey: -1721219739287
+    _type: unit_test
+  - _id: ut_2889c6f3c96243c087200ddc70ae983b
+    parentId: uts_860a11b7d3f34e0ca237b5148194e78b
+    modified: 1639167322028
+    created: 1639167318957
+    requestId: null
+    name: Create Data
+    code: |-
+      const response1 = await insomnia.send();
+      expect(response1.status).to.equal(200);
+    metaSortKey: -1721219739290
+    _type: unit_test
+  - _id: ut_33286a5f2c214438a755370288389179
+    parentId: uts_860a11b7d3f34e0ca237b5148194e78b
+    modified: 1639168845085
+    created: 1639167331907
+    requestId: null
+    name: Finish Transaction
+    code: |-
+      const response1 = await insomnia.send();
+      expect(response1.status).to.equal(200);
+    metaSortKey: -1721219739293
+    _type: unit_test
+  - _id: ut_76d6afddf85d4f89a85102bbeec2b4d0
+    parentId: uts_91d04467a48743c2b6ec3b7cad38c5f6
+    modified: 1640094638869
+    created: 1640094593075
+    requestId: null
+    name: Unreceived - Transactions
+    code: |-
+      const response1 = await insomnia.send();
+      expect(response1.status).to.equal(200);
+    metaSortKey: -1721219739295
+    _type: unit_test
+  - _id: ut_7f43563fc7dc4791a3a862971c67f785
+    parentId: uts_91d04467a48743c2b6ec3b7cad38c5f6
+    modified: 1640094636077
+    created: 1640094610091
+    requestId: null
+    name: Transaction - Metadata
+    code: |-
+      const response1 = await insomnia.send();
+      expect(response1.status).to.equal(200);
+    metaSortKey: -1721219739298
+    _type: unit_test
+  - _id: ut_4ef1b2029c3f45df9a46c2d33766bf7e
+    parentId: uts_91d04467a48743c2b6ec3b7cad38c5f6
+    modified: 1640094648875
+    created: 1640094632819
+    requestId: null
+    name: Metada - Data Page
+    code: |-
+      const response1 = await insomnia.send();
+      expect(response1.status).to.equal(200);
+    metaSortKey: -1721219739300
+    _type: unit_test
+  - _id: ut_98f4c00969db4a55a7ac483eaee4da36
+    parentId: uts_91d04467a48743c2b6ec3b7cad38c5f6
+    modified: 1640094661553
+    created: 1640094658728
+    requestId: null
+    name: Transaction - Received
+    code: |-
+      const response1 = await insomnia.send();
+      expect(response1.status).to.equal(200);
+    metaSortKey: -1721219739303
+    _type: unit_test
+  - _id: ut_a53925da60e24137b0bf1d92c509a4ef
+    parentId: uts_91d04467a48743c2b6ec3b7cad38c5f6
+    modified: 1640094669498
+    created: 1640094667160
+    requestId: null
+    name: Transaction - Used
+    code: |-
+      const response1 = await insomnia.send();
+      expect(response1.status).to.equal(200);
+    metaSortKey: -1721219739305
+    _type: unit_test
