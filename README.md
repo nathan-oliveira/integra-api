@@ -1,3 +1,7 @@
+# Author
+
+[Nathan Oliveira Mendonça] [https://www.linkedin.com/in/nathan-oliveira-mendonca/]
+
 ## Framework
 
 [Nest](https://nestjs.com) framework TypeScript repositório inicial em Node.js
