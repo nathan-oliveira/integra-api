@@ -23,9 +23,8 @@ chmod +x .docker/entrypoint.sh
 chmod +x .docker/wait-for-db.sh
 chmod +x .docker/postgres/create-schema.sh
 dos2unix .docker/postgres/create-schema.sh
-yarn install # ou npm install
-yarn build # ou npm build
-# npm run migration:run
+yarn install
+yarn build
 docker-compose up -d
 ```
 
