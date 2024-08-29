@@ -1,6 +1,6 @@
 # Author
 
-[Nathan Oliveira Mendonça] [https://www.linkedin.com/in/nathan-oliveira-mendonca/]
+[Nathan Oliveira Mendonça](https://www.linkedin.com/in/nathan-oliveira-mendonca)
 
 ## Framework
 
