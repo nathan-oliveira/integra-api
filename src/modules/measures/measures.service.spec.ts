@@ -17,10 +17,7 @@ import {
   mockReadListMeasureDto,
   mockUploadMeasureDto,
 } from 'src/../test/mocks/measures';
-import {
-  mockExpressMulterFile,
-  mockMethodsRepository,
-} from 'src/../test/mocks/default';
+import { mockMethodsRepository } from 'src/../test/mocks/default';
 
 describe('MeasuresService', () => {
   let service: MeasuresService;
@@ -258,12 +255,9 @@ describe('MeasuresService', () => {
 
       const uploadMeasureDto = mockUploadMeasureDto();
 
-      await service.upload(uploadMeasureDto, mockExpressMulterFile);
+      await service.upload(uploadMeasureDto);
 
-      expect(findSpy).toHaveBeenCalledWith(
-        uploadMeasureDto,
-        mockExpressMulterFile,
-      );
+      expect(findSpy).toHaveBeenCalledWith(uploadMeasureDto);
     });
 
     it('should call the method and return the errors', async () => {
@@ -275,12 +269,9 @@ describe('MeasuresService', () => {
 
       const uploadMeasureDto = mockUploadMeasureDto();
 
-      await service.upload(uploadMeasureDto, null);
+      await service.upload(null);
 
-      expect(findSpy).not.toHaveBeenCalledWith(
-        uploadMeasureDto,
-        mockExpressMulterFile,
-      );
+      expect(findSpy).not.toHaveBeenCalledWith(uploadMeasureDto);
     });
 
     it('should call the method to find and return the errors', async () => {
@@ -288,9 +279,7 @@ describe('MeasuresService', () => {
 
       const uploadMeasureDto = mockUploadMeasureDto();
 
-      await expect(
-        service.upload(uploadMeasureDto, mockExpressMulterFile),
-      ).rejects.toThrow(new Error());
+      await expect(service.upload(uploadMeasureDto)).rejects.toThrow(new Error());
     });
 
     it('should call the method and return the result', async () => {
@@ -301,7 +290,7 @@ describe('MeasuresService', () => {
       const uploadMeasureDto = mockUploadMeasureDto();
 
       expect(
-        await service.upload(uploadMeasureDto, mockExpressMulterFile),
+        await service.upload(uploadMeasureDto),
       ).toEqual(measureEntity);
     });
   });

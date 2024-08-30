@@ -31,4 +31,12 @@ export class UploadMeasureDto {
   @IsEnum(Object.values(MeasureTypeEnum), { message: 'Invalid type!' })
   @IsString({ message: 'Measure type must be a string' })
   measure_type: string;
+
+  @ApiProperty({
+    type: String,
+    description: 'Image Base64',
+  })
+  @IsNotEmpty({ message: 'Image type cannot be empty!' })
+  // @IsString({ message: 'Image must be a string' })
+  image: string;
 }

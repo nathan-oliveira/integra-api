@@ -33,7 +33,7 @@ export class AppConfig {
 
   private setGlobalConfigs(): void {
     this.app.useGlobalFilters(new HttpExceptionFilter());
-    this.app.useBodyParser('json'); // , { limit: '500mb' }
+    this.app.useBodyParser('json', { limit: '500mb' });
     this.app.useGlobalPipes(
       new ValidationPipe({
         whitelist: true,

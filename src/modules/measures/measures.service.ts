@@ -4,7 +4,7 @@ import { Between, FindManyOptions, Repository } from 'typeorm';
 
 import { GeminiService } from 'src/modules/gemini/gemini.service';
 import { CustomErrorException } from 'src/common/errors/custom-error.exception';
-import { removeImageStorage } from 'src/common/utils/storage-local';
+import { removeImageStorage, updateImageStorage } from 'src/common/utils/storage-local';
 
 import { MeasureEntity } from './entities/measure.entity';
 
@@ -113,42 +113,32 @@ export class MeasuresService {
     }
   }
 
-  async upload(
-    uploadMeasureDto: UploadMeasureDto,
-    image: Express.Multer.File,
-  ): Promise<MeasureEntity> {
+  async upload(uploadMeasureDto: UploadMeasureDto): Promise<MeasureEntity> {
+    await this.validateReading(uploadMeasureDto);
+    const { image, ...restUploadMeasureDto } = uploadMeasureDto;
+    const resultUpload = await updateImageStorage(image);
+
     try {
-      await this.validateReading(uploadMeasureDto);
-
-      const uploadResponse = await this.geminiService.upload({
-        filePath: image.path,
-        mimeType: image.mimetype,
-        displayName: image.originalname,
-      });
-
+      const uploadResponse = await this.geminiService.upload(resultUpload);
       const contentResponse = await this.geminiService.generateContent(
         PROMPT_MEASURE,
         uploadResponse,
       );
       const measureValue = contentResponse.response.text().replace(/\D/g, '');
 
-      const { customer_code, measure_datetime, measure_type } =
-        uploadMeasureDto;
       const {
         file: { uri: image_url },
       } = uploadResponse;
 
       return this.create({
-        customer_code,
+        ...restUploadMeasureDto,
         image_url,
-        measure_datetime,
-        measure_type,
         measure_value: parseInt(measureValue),
       });
     } catch (error) {
       throw error;
     } finally {
-      removeImageStorage(image?.path);
+      removeImageStorage(resultUpload.filePath);
     }
   }
 }

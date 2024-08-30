@@ -9,10 +9,7 @@ import { MeasuresService } from './measures.service';
 import { MeasuresController } from './measures.controller';
 
 import { GeminiModule } from 'src/modules/gemini/gemini.module';
-import {
-  mockExpressMulterFile,
-  mockMethodsRepository,
-} from 'src/../test/mocks/default';
+
 import {
   mockConfirmMeasureDto,
   mockQueryParamsDto,
@@ -21,6 +18,7 @@ import {
   mockReadUploadMeasureDto,
   mockUploadMeasureDto,
 } from 'src/../test/mocks/measures';
+import { mockMethodsRepository } from 'src/../test/mocks/default';
 
 describe('MeasuresController', () => {
   let controller: MeasuresController;
@@ -58,12 +56,9 @@ describe('MeasuresController', () => {
 
       const uploadMeasureDto = mockUploadMeasureDto();
 
-      await controller.upload(uploadMeasureDto, mockExpressMulterFile);
+      await controller.upload(uploadMeasureDto);
 
-      expect(findSpy).toHaveBeenCalledWith(
-        uploadMeasureDto,
-        mockExpressMulterFile,
-      );
+      expect(findSpy).toHaveBeenCalledWith(uploadMeasureDto);
     });
 
     it('should call the method and return invalid parameters', async () => {
@@ -75,12 +70,9 @@ describe('MeasuresController', () => {
 
       const uploadMeasureDto = mockUploadMeasureDto();
 
-      await controller.upload(uploadMeasureDto, null);
+      await controller.upload(null);
 
-      expect(findSpy).not.toHaveBeenCalledWith(
-        uploadMeasureDto,
-        mockExpressMulterFile,
-      );
+      expect(findSpy).not.toHaveBeenCalledWith(uploadMeasureDto);
     });
 
     it('should call the method and return the errors', () => {
@@ -88,9 +80,7 @@ describe('MeasuresController', () => {
 
       const uploadMeasureDto = mockUploadMeasureDto();
 
-      expect(
-        controller.upload(uploadMeasureDto, mockExpressMulterFile),
-      ).rejects.toThrow(new Error());
+      expect(controller.upload(uploadMeasureDto)).rejects.toThrow(new Error());
     });
 
     it('should call the method and return the result', async () => {
@@ -103,7 +93,7 @@ describe('MeasuresController', () => {
       const uploadMeasureDto = mockUploadMeasureDto();
 
       expect(
-        await controller.upload(uploadMeasureDto, mockExpressMulterFile),
+        await controller.upload(uploadMeasureDto),
       ).toEqual(readUploadMeasureDto);
     });
   });

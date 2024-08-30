@@ -9,11 +9,9 @@ import {
   Get,
   Query,
 } from '@nestjs/common';
-import { FileInterceptor } from '@nestjs/platform-express';
 import { ApiOkResponse } from '@nestjs/swagger';
 import { plainToClass } from 'class-transformer';
 
-import { MulterMiddleware } from 'src/common/middlewares/multer.middleware';
 import { ParamId } from 'src/common/decorators/param-id.decorator';
 
 import { MeasuresService } from './measures.service';
@@ -33,18 +31,11 @@ export class MeasuresController {
   constructor(private readonly measuresService: MeasuresService) {}
 
   @Post('upload')
-  @UseInterceptors(
-    FileInterceptor(
-      'image',
-      MulterMiddleware.getStorage({ folder: 'measures' }),
-    ),
-  )
   @ApiOkResponse({ type: ReadUploadMeasureDto })
   async upload(
     @Body() uploadMeasureDto: UploadMeasureDto,
-    @UploadedFile() image: Express.Multer.File,
   ): Promise<ReadUploadMeasureDto> {
-    const result = await this.measuresService.upload(uploadMeasureDto, image);
+    const result = await this.measuresService.upload(uploadMeasureDto);
     return plainToClass(ReadUploadMeasureDto, result);
   }
 

@@ -1,9 +1,37 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsNotEmpty, IsNumber, IsString, MaxLength } from 'class-validator';
+import { IsEnum, IsNotEmpty, IsNumber, IsString, MaxLength } from 'class-validator';
 
-import { UploadMeasureDto } from './upload-measure.dto';
+import { MeasureTypeEnum } from '../enums';
 
-export class CreateMeasureDto extends UploadMeasureDto {
+export class CreateMeasureDto {
+  @ApiProperty({
+    type: String,
+    description: 'Customer code',
+  })
+  @IsNotEmpty({ message: 'Customer code cannot be empty!' })
+  @MaxLength(255, {
+    message: 'Customer code must contain a maximum of 255 characters!',
+  })
+  @IsString({ message: 'Customer code must be a string' })
+  customer_code: string;
+
+  @ApiProperty({
+    type: String,
+    description: 'Measure datetime',
+  })
+  @IsNotEmpty({ message: 'Measure datetime cannot be empty!' })
+  @IsString({ message: 'Measure datetime must be a string' })
+  measure_datetime: string;
+
+  @ApiProperty({
+    type: String,
+    description: 'Measure type',
+  })
+  @IsNotEmpty({ message: 'Measure type cannot be empty!' })
+  @IsEnum(Object.values(MeasureTypeEnum), { message: 'Invalid type!' })
+  @IsString({ message: 'Measure type must be a string' })
+  measure_type: string;
+
   @ApiProperty({
     type: String,
     description: 'Measure value',
