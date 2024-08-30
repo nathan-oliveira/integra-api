@@ -24,7 +24,6 @@ yarn install
 
 ```bash
 chmod +x .docker/entrypoint.sh
-chmod +x .docker/wait-for-db.sh
 chmod +x .docker/postgres/create-schema.sh
 dos2unix .docker/postgres/create-schema.sh
 yarn install

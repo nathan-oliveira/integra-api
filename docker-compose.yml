@@ -7,7 +7,6 @@ services:
       - '80:80'
     volumes:
       - .:/usr/src/app
-      - .docker/wait-for-db.sh:/usr/src/app/wait-for-db.sh
     depends_on:
       - base_db_postgres
       - base_db_pgadmin
@@ -15,7 +14,6 @@ services:
       NODE_ENV: production
     networks:
       - postgres
-    # entrypoint: /bin/sh -c "sh /usr/src/app/wait-for-db.sh"
 
   base_db_postgres:
     build: .docker/postgres

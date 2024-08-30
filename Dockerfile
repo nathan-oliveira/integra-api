@@ -29,6 +29,4 @@ EXPOSE 80
 
 ENV NODE_ENV=production
 
-ENTRYPOINT ["/usr/src/app/wait-for-db.sh"]
-
-CMD ["node", "dist/src/main.js"]
+CMD npm run migration:run && node dist/src/main.js
