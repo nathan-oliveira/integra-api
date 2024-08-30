@@ -4,21 +4,21 @@ import { IsString } from 'class-validator';
 export class UploadFileGeminiDto {
   @ApiProperty({
     type: String,
-    description: 'FilePath',
+    description: 'Url of the uploaded file',
   })
   @IsString({ message: 'filePath must be a string' })
   filePath: string;
 
   @ApiProperty({
     type: String,
-    description: 'MimeType',
+    description: 'Mime type of the uploaded file',
   })
   @IsString({ message: 'mimeType must be a string' })
   mimeType: string;
 
   @ApiProperty({
     type: String,
-    description: 'DisplayName',
+    description: 'Name of the uploaded file',
   })
   @IsString({ message: 'displayName must be a string' })
   displayName: string;
