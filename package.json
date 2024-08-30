@@ -1,8 +1,8 @@
 {
   "name": "integra-api",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "description": "integra api",
+  "author": "Nathan Oliveira Mendonça",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {

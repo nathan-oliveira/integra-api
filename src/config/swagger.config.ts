@@ -9,7 +9,6 @@ export default class SwaggerConfig {
       .setTitle(name)
       .setDescription(description)
       .setVersion(version)
-      .addBearerAuth({ type: 'http', scheme: 'bearer', bearerFormat: 'JWT' })
       .build();
 
     const document = SwaggerModule.createDocument(app, config);
