@@ -62,10 +62,12 @@ export const verifyBase64 = (base64: string): IValidateBase64 => {
     extension,
     base64String: matches[2],
     mimeType,
-  }
-}
+  };
+};
 
-export const updateImageStorage = async (base64: string): Promise<IUpdateImageStore> => {
+export const updateImageStorage = async (
+  base64: string,
+): Promise<IUpdateImageStore> => {
   const { extension, base64String, mimeType } = verifyBase64(base64);
   const displayName = `${randomUUID()}${extension}`;
   const filePath = resolve(__dirname, `../../../storage/${displayName}`);
@@ -73,7 +75,7 @@ export const updateImageStorage = async (base64: string): Promise<IUpdateImageSt
   try {
     createStorageDirectory(filePath);
     await writeFile(filePath, Buffer.from(base64String, 'base64'));
-    return { filePath, mimeType, displayName }
+    return { filePath, mimeType, displayName };
   } catch (error) {
     throw new CustomErrorException({
       message: error?.message ?? 'Invalid image!',

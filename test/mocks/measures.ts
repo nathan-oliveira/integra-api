@@ -63,7 +63,8 @@ export const mockUploadMeasureDto = (): UploadMeasureDto => ({
   customer_code: faker.string.uuid(),
   measure_datetime: new Date().toISOString(),
   measure_type: MeasureTypeEnum.WATER,
-  image: 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBAUEBAYFBQUGBgYHCQ4JCQgICRINDQoOFR...',
+  image:
+    'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBAUEBAYFBQUGBgYHCQ4JCQgICRINDQoOFR...',
 });
 
 export const mockMeasureEntity = (): MeasureEntity =>

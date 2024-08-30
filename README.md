@@ -20,7 +20,7 @@ yarn install
 * docker >= 27.1.1
 * docker-compose
 
-## Step by step to upload the application to docker, run the commands below in the same order.
+## Step by step to upload the application to docker, run the commands below in the same order
 
 ```bash
 chmod +x .docker/entrypoint.sh

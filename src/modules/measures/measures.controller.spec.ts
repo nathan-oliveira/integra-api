@@ -92,9 +92,9 @@ describe('MeasuresController', () => {
 
       const uploadMeasureDto = mockUploadMeasureDto();
 
-      expect(
-        await controller.upload(uploadMeasureDto),
-      ).toEqual(readUploadMeasureDto);
+      expect(await controller.upload(uploadMeasureDto)).toEqual(
+        readUploadMeasureDto,
+      );
     });
   });
 

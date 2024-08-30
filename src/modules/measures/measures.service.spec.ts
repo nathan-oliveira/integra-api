@@ -279,7 +279,9 @@ describe('MeasuresService', () => {
 
       const uploadMeasureDto = mockUploadMeasureDto();
 
-      await expect(service.upload(uploadMeasureDto)).rejects.toThrow(new Error());
+      await expect(service.upload(uploadMeasureDto)).rejects.toThrow(
+        new Error(),
+      );
     });
 
     it('should call the method and return the result', async () => {
@@ -289,9 +291,7 @@ describe('MeasuresService', () => {
 
       const uploadMeasureDto = mockUploadMeasureDto();
 
-      expect(
-        await service.upload(uploadMeasureDto),
-      ).toEqual(measureEntity);
+      expect(await service.upload(uploadMeasureDto)).toEqual(measureEntity);
     });
   });
 });

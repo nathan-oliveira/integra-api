@@ -4,7 +4,10 @@ import { Between, FindManyOptions, Repository } from 'typeorm';
 
 import { GeminiService } from 'src/modules/gemini/gemini.service';
 import { CustomErrorException } from 'src/common/errors/custom-error.exception';
-import { removeImageStorage, updateImageStorage } from 'src/common/utils/storage-local';
+import {
+  removeImageStorage,
+  updateImageStorage,
+} from 'src/common/utils/storage-local';
 
 import { MeasureEntity } from './entities/measure.entity';
 
