@@ -31,10 +31,6 @@ yarn build
 docker-compose up -d
 ```
 
-# To upload the local application
-
-* The environment variable "DATABASE_HOST" must be "localhost"
-
 ## Environment Gemini API
 
 * GEMINI_API_KEY - [generate key](https://ai.google.dev/gemini-api/docs/api-key?hl=pt-br)
