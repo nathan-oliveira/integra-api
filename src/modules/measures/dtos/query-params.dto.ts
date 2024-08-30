@@ -5,8 +5,7 @@ import { Transform } from 'class-transformer';
 
 export class QueryParamsDto {
   @ApiProperty({
-    name: 'search',
-    description: 'Filter query parameter for table',
+    description: 'Type of measurement Water or gas',
     type: String,
     required: false,
   })

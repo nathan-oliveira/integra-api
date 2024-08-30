@@ -12,7 +12,7 @@ import { MeasureTypeEnum } from '../enums';
 export class CreateMeasureDto {
   @ApiProperty({
     type: String,
-    description: 'Customer code',
+    description: 'Identification of the customer UUID code',
   })
   @IsNotEmpty({ message: 'Customer code cannot be empty!' })
   @MaxLength(255, {
@@ -23,7 +23,7 @@ export class CreateMeasureDto {
 
   @ApiProperty({
     type: String,
-    description: 'Measure datetime',
+    description: 'Date and time of measurement',
   })
   @IsNotEmpty({ message: 'Measure datetime cannot be empty!' })
   @IsString({ message: 'Measure datetime must be a string' })
@@ -31,7 +31,7 @@ export class CreateMeasureDto {
 
   @ApiProperty({
     type: String,
-    description: 'Measure type',
+    description: 'Type of measurement Water or gas',
   })
   @IsNotEmpty({ message: 'Measure type cannot be empty!' })
   @IsEnum(Object.values(MeasureTypeEnum), { message: 'Invalid type!' })
@@ -40,7 +40,7 @@ export class CreateMeasureDto {
 
   @ApiProperty({
     type: String,
-    description: 'Measure value',
+    description: 'Value of the measure',
   })
   @IsNumber()
   @IsNotEmpty({ message: 'Measure value cannot be empty!' })
@@ -48,7 +48,7 @@ export class CreateMeasureDto {
 
   @ApiProperty({
     type: String,
-    description: 'Image url',
+    description: 'Url of the temporary measurement image',
   })
   @IsNotEmpty({ message: 'Image url cannot be empty!' })
   @MaxLength(255, {

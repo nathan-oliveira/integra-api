@@ -8,7 +8,7 @@ import { IsNumberNotOneOrTwo } from 'src/common/decorators/is-number-not-one-or-
 export class ConfirmMeasureDto {
   @ApiProperty({
     type: String,
-    description: 'Measure uuid',
+    description: 'Identification of uuid measurement',
   })
   @IsNotEmpty({ message: 'Measure uuid cannot be empty!' })
   @MaxLength(255, {
@@ -20,7 +20,7 @@ export class ConfirmMeasureDto {
 
   @ApiProperty({
     type: String,
-    description: 'Confirmed value',
+    description: 'Value for measurement confirmation 0 or 1',
   })
   @IsNotEmpty({ message: 'Confirmed value cannot be empty!' })
   @Transform(({ value }) => (typeof value === 'string' ? Number(value) : value))

@@ -1,7 +1,6 @@
 import {
   ClassSerializerInterceptor,
   UseInterceptors,
-  UploadedFile,
   Controller,
   Post,
   Body,
@@ -9,7 +8,7 @@ import {
   Get,
   Query,
 } from '@nestjs/common';
-import { ApiOkResponse } from '@nestjs/swagger';
+import { ApiBody, ApiOkResponse, ApiParam, ApiQuery } from '@nestjs/swagger';
 import { plainToClass } from 'class-transformer';
 
 import { ParamId } from 'src/common/decorators/param-id.decorator';
@@ -32,6 +31,7 @@ export class MeasuresController {
 
   @Post('upload')
   @ApiOkResponse({ type: ReadUploadMeasureDto })
+  @ApiBody({ type: UploadMeasureDto })
   async upload(
     @Body() uploadMeasureDto: UploadMeasureDto,
   ): Promise<ReadUploadMeasureDto> {
@@ -40,6 +40,8 @@ export class MeasuresController {
   }
 
   @Patch('confirm')
+  @ApiOkResponse({ type: ReadConfirmMeasureDto })
+  @ApiBody({ type: ConfirmMeasureDto })
   async confirm(
     @Body() confirmMeasureDto: ConfirmMeasureDto,
   ): Promise<ReadConfirmMeasureDto> {
@@ -48,6 +50,9 @@ export class MeasuresController {
   }
 
   @Get(':id/list')
+  @ApiOkResponse({ type: ReadListMeasureDto })
+  @ApiParam({ name: 'id', type: String })
+  @ApiQuery({ type: QueryParamsDto })
   async getAll(
     @ParamId() customerCode: string,
     @Query() queryParamsDto: QueryParamsDto,
